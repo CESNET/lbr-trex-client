@@ -2,8 +2,11 @@
 
 The purpose of this package is to provide official Cisco
 `TRex traffic generator` client API. This API is part of
-full TRex package as a tar.gz archive. It has been extracted
-and packaged as Python module. Current API version is [v2.86](https://trex-tgn.cisco.com/trex/doc/release_notes.html).
+full TRex package as a [tar.gz archive](https://trex-tgn.cisco.com/trex/doc/cp_docs/index.html#client-package).
+It has been extracted and packaged as Python module.
+Current API version is [v2.86](https://trex-tgn.cisco.com/trex/doc/release_notes.html).
+
+
 
 ## Hosting and contribution
 
@@ -63,7 +66,7 @@ Here are links to API reference of main components:
 
 [Advanced Stateful - trex.astf.api](https://trex-tgn.cisco.com/trex/doc/cp_astf_docs/index.html#api-reference) - API for handling advanced stateful TRex (connection, traffic profiles...).
 
-[trex_client (CTRexClient)](https://trex-tgn.cisco.com/trex/doc/cp_docs/index.html#api-reference) - API for communication with TRex daemon (daemon is resposible for starting and terminating TRex instances(both stateless or stateful instances).
+[trex_client (CTRexClient)](https://trex-tgn.cisco.com/trex/doc/cp_docs/index.html#api-reference) - API for communication with TRex daemon (daemon is resposible for starting and terminating TRex instances(both stateless or stateful instances)).
 
 General TRex documentation can be found [here](https://trex-tgn.cisco.com/trex/doc/index.html).
 
