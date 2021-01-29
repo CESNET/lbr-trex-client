@@ -60,7 +60,9 @@ Explore [external_libs](./lbr_trex_client/v2_86/external_libs) to see all extern
 Here are links to API reference of main components:
 
 [Stateless - trex.stl.api](https://trex-tgn.cisco.com/trex/doc/cp_stl_docs/index.html#api-reference) - API for handling stateless TRex (connection, streams, Field Engine...).
+
 [Advanced Stateful - trex.astf.api](https://trex-tgn.cisco.com/trex/doc/cp_astf_docs/index.html#api-reference) - API for handling advanced stateful TRex (connection, traffic profiles...).
+
 [trex_client (CTRexClient)](https://trex-tgn.cisco.com/trex/doc/cp_docs/index.html#api-reference) - API for communication with TRex daemon (daemon is resposible for starting and terminating TRex instances(both stateless or stateful instances).
 
 General TRex documentation can be found [here](https://trex-tgn.cisco.com/trex/doc/index.html).
