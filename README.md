@@ -74,3 +74,7 @@ General TRex documentation can be found [here](https://trex-tgn.cisco.com/trex/d
 
 You can also use `lbr_testsuite` package for additional TRex tools that are build on top of this API.
 TRex tools simplify certain operations. For more information see [testsuite](https://gitlab.liberouter.org/tmc/testsuite).
+
+ ## Repository Maintainer
+
+- Dominik Tran, tran@cesnet.cz
