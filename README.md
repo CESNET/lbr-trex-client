@@ -4,7 +4,7 @@ The purpose of this package is to provide official Cisco
 `TRex traffic generator` client API. This API is part of
 full TRex package as a [tar.gz archive](https://trex-tgn.cisco.com/trex/doc/cp_docs/index.html#client-package).
 It has been extracted and packaged as Python module.
-Current API version is [v2.86](https://trex-tgn.cisco.com/trex/doc/release_notes.html).
+Current API version is [v3.02](https://trex-tgn.cisco.com/trex/doc/release_notes.html#_release_3_02).
 
 
 
@@ -39,16 +39,18 @@ python3.6 -m pip install lbr-trex-client --extra-index-url https://trex_client_d
 Use standard Python import way:
 
 ```
-from lbr_trex_client.v2_86.interactive.trex.stl.api import *
-from lbr_trex_client.v2_86.interactive.trex.astf.api import *
+from lbr_trex_client.v3_02.interactive.trex.stl.api import *
+from lbr_trex_client.v3_02.interactive.trex.astf.api import *
 ...
 ```
-This has disadvantage of being relatively long.
+This has disadvantage of being relatively long. It also includes version
+API, which will change with future TRex updates.
 
 #### Method 2
 Import **paths**. This will set system paths that allow for shorter imports.
 ```
 import lbr_trex_client.paths
+
 from trex.stl.api import *
 from trex.astf.api import *
 from trex_client import CTRexClient
@@ -58,7 +60,7 @@ from scapy.layers.dns import *
 ```
 As you can see import above also contains Scapy. TRex is distributed as single archive
 and as such contains all external libraries/package inside. This is same with it's API.
-Explore [external_libs](./lbr_trex_client/v2_86/external_libs) to see all external packages.
+Explore [external_libs](./lbr_trex_client/v3_02/external_libs) to see all external packages.
 
 Here are links to API reference of main components:
 
