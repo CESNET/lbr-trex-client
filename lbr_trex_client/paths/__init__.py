@@ -9,6 +9,6 @@ import sys
 # from scapy.layers.dns import *
 # ...
 # Without it, you will need to use long paths like
-# from lbr_trex_client.v2_86.interactive.trex.stl.api import *
-sys.path.append(os.path.join(os.path.dirname(__file__), "../v2_86/interactive"))
-sys.path.append(os.path.join(os.path.dirname(__file__), "../v2_86/stf/trex_stf_lib"))
+# from lbr_trex_client.v3_02.interactive.trex.stl.api import *
+sys.path.append(os.path.join(os.path.dirname(__file__), "../v3_02/interactive"))
+sys.path.append(os.path.join(os.path.dirname(__file__), "../v3_02/stf/trex_stf_lib"))

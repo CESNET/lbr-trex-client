@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="lbr_trex_client",
-    version="1.0",
+    version="2.0",
     author="CESNET",
     author_email="tran@cesnet.cz",
     description="Lbr_trex_client contains official Cisco TRex client API as python package.",
