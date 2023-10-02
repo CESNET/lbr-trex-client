@@ -80,3 +80,9 @@ TRex tools simplify certain operations. For more information see [testsuite](htt
  ## Repository Maintainer
 
 - Dominik Tran, tran@cesnet.cz
+
+## License
+
+Package is published under [Apache License Version 2.0](./LICENSE), which is [inherited](https://github.com/cisco-system-traffic-generator/trex-core/blob/master/LICENSE) from the TRex traffic generator 
+source. The TRex client API contains also modified version of Scapy library, which is published under 
+[GPLv2](./lbr_trex_client/v3_02/external_libs/scapy-2.4.3/LICENSE) license.
