@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools >= 61", "wheel", "setuptools-git-versioning"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["lbr_trex_client*"]
+
+[project]
+name = "lbr_trex_client"
+description="Lbr-trex-client package contains TRex traffic generator client API as Python package."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "Apache 2.0 with Scapy having GPLv2. Inherited from TRex. See https://github.com/cisco-system-traffic-generator/trex-core/blob/master/LICENSE and https://github.com/cisco-system-traffic-generator/trex-core/blob/master/LICENSE_Python_Client" }
+authors = [
+    { name = "CESNET", email = "tmc-info@cesnet.cz" }
+]
+maintainers = [
+    { name = "Dominik Tran", email = "tran@cesnet.cz" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3.8",
+]
+dynamic = ["version"]
+
+[project.urls]
+repository = "https://gitlab.liberouter.org/testing/trex-client"
+
+[tool.setuptools-git-versioning]
+enabled = true
+template = "{tag}"
+dev_template = "{tag}.dev{ccount}+git.{sha}"
+dirty_template = "{tag}.dev{ccount}+git.{sha}.dirty"
+starting_version = "0.0.1"
