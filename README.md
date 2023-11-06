@@ -16,17 +16,17 @@ This package uses Python 3.8. Other Python versions are untested, but it is like
 
 ## Hosting and contribution
 
-Package `lbr-trex-client` is hosted in GitLab's Package Registry
-under PyPI package manager. You can list all available versions
-by following this [link](https://gitlab.liberouter.org/tmc/pypi-liberouter/-/packages).
+Package `lbr-trex-client` is hosted publicly on Python Package Index (PyPI)
+and internally in GitLab's Package Registry.
 
 This project uses GitLab CI pipeline which is triggered
 with every new commit. Pipeline creates .whl package from contents
 inside [lbr_trex_client](./lbr_trex_client) folder.
 
 If pipeline triggers on `master` branch, then package is also uploaded into
-Package Registry. Version of package is defined by [git tags](https://pypi.org/project/setuptools-git-versioning/).
+GitLab Package Registry. Version of package is defined by [git tags](https://pypi.org/project/setuptools-git-versioning/).
 It should follow version of TRex.
+Additionally, package is also uploaded on PyPI if it has a tag.
 
 
 ## Installation
@@ -34,7 +34,7 @@ It should follow version of TRex.
 You can use following command for installation:
 
 ```
-python3.8 -m pip install lbr-trex-client --extra-index-url http://cisticka-devel.liberouter.org/piproxy/tmc/pypi-liberouter/simple --trusted-host cisticka-devel.liberouter.org
+python3.8 -m pip install lbr-trex-client
 ```
 
 
