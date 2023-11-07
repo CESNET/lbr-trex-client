@@ -114,7 +114,7 @@ General TRex documentation can be found [here](https://trex-tgn.cisco.com/trex/d
 #### Custom TRex API
 
 You can also use `lbr-testsuite` package for custom TRex API that is built on top of this package.
-For more information see [testsuite](https://gitlab.liberouter.org/testing/testsuite).
+For more information see [testsuite](https://pypi.org/project/lbr-testsuite/).
 
 
 ## Repository Maintainer
