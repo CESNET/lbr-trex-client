@@ -31,8 +31,7 @@ upload to PyPI:
         - TWINE_PASSWORD=${PYPI_PASSWORD} TWINE_USERNAME=${PYPI_USERNAME}
             python3 -m twine upload --verbose dist/*
     only:
-        variables:
-            - $CI_COMMIT_BRANCH == "master" && $CI_COMMIT_TAG
+        - tags
 
 variables:
     GIT_STRATEGY: clone
