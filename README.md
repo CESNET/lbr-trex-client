@@ -10,7 +10,7 @@ which can be easily installed via `pip`. As mentioned, this API is part of
 TRex as a [tar.gz archive](https://trex-tgn.cisco.com/trex/doc/cp_docs/index.html#client-package).
 It has been extracted and packaged as Python module. Official source code can be also found on
 [TRex GitHub](https://github.com/cisco-system-traffic-generator/trex-core).
-Current API version of this package is [v3.02](https://trex-tgn.cisco.com/trex/doc/release_notes.html#_release_3_02).
+Current API version of this package is [v3.04](https://trex-tgn.cisco.com/trex/doc/release_notes.html#_release_3_04).
 This package uses Python 3.8. Other Python versions are untested, but it is likely they will work as well.
 
 
@@ -60,17 +60,17 @@ from scapy.layers.dns import *
 Alternatively you can use
 
 ```
-from lbr_trex_client.v3_02.interactive.trex.stl.api import *
-from lbr_trex_client.v3_02.interactive.trex.astf.api import *
+from lbr_trex_client.interactive.trex.stl.api import *
+from lbr_trex_client.interactive.trex.astf.api import *
 ...
 ```
 
 As you can see import above also contains Scapy. TRex is distributed as single archive
 and as such contains all external libraries/package inside. This is same with it's API.
-Explore [external_libs](./lbr_trex_client/v3_02/external_libs) to see all external packages.
+Explore [external_libs](./lbr_trex_client/external_libs) to see all external packages.
 
 **Note that** if your code already imported given package, then TRex **will replace** it with it's
-own version of package. The [replacement method](./lbr_trex_client/v3_02/interactive/trex/__init__.py)
+own version of package. The [replacement method](./lbr_trex_client/interactive/trex/__init__.py)
 however is not perfect and you can still be left with some local and some TRex version of modules.
 This is mostly evident with Scapy, especially with `from scapy.all import *` import.
 
@@ -91,9 +91,9 @@ Package `lbr-trex-client` has few changes compared to official client package:
 On import you can get warning messages from Scapy:
 
 ```
-...lbr_trex_client/v3_02/external_libs/scapy-2.4.3/scapy/layers/ipsec.py:469: CryptographyDeprecationWarning: Blowfish has been deprecated
+...lbr_trex_client/external_libs/scapy-2.4.3/scapy/layers/ipsec.py:469: CryptographyDeprecationWarning: Blowfish has been deprecated
   cipher=algorithms.Blowfish,
-...lbr_trex_client/v3_02/external_libs/scapy-2.4.3/scapy/layers/ipsec.py:483: CryptographyDeprecationWarning: CAST5 has been deprecated
+...lbr_trex_client/external_libs/scapy-2.4.3/scapy/layers/ipsec.py:483: CryptographyDeprecationWarning: CAST5 has been deprecated
   cipher=algorithms.CAST5,
 ```
 
@@ -125,4 +125,4 @@ For more information see [testsuite](https://pypi.org/project/lbr-testsuite/).
 
 Package is published under [Apache License Version 2.0](./LICENSE), which is [inherited](https://github.com/cisco-system-traffic-generator/trex-core/blob/master/LICENSE) from the TRex traffic generator
 source. The TRex client API contains also modified version of Scapy library, which is published under
-[GPLv2](./lbr_trex_client/v3_02/external_libs/scapy-2.4.3/LICENSE) license.
+[GPLv2](./lbr_trex_client/external_libs/scapy-2.4.3/LICENSE) license.
