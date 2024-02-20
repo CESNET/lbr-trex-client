@@ -3,7 +3,7 @@ import sys
 
 # Set TREX_EXT_LIBS which is used by some TRex modules
 os.environ["TREX_EXT_LIBS"] = os.path.join(
-    os.path.dirname(__file__), "v3_02/external_libs"
+    os.path.dirname(__file__), "external_libs"
 )
 
 # Provide TRex paths.
@@ -16,5 +16,5 @@ os.environ["TREX_EXT_LIBS"] = os.path.join(
 #  ModuleNotFoundError: No module named 'trex'
 #
 # Adding correct paths to sys.path fixes the issue.
-sys.path.append(os.path.join(os.path.dirname(__file__), "v3_02/interactive"))
-sys.path.append(os.path.join(os.path.dirname(__file__), "v3_02/stf/trex_stf_lib"))
+sys.path.append(os.path.join(os.path.dirname(__file__), "interactive"))
+sys.path.append(os.path.join(os.path.dirname(__file__), "stf/trex_stf_lib"))
