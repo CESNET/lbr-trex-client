@@ -23,7 +23,7 @@ classifiers = [
 dynamic = ["version"]
 
 [project.urls]
-repository = "https://gitlab.liberouter.org/testing/trex-client"
+repository = "https://github.com/CESNET/lbr-trex-client"
 
 [tool.setuptools-git-versioning]
 enabled = true

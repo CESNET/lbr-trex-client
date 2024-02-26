@@ -1,33 +1,18 @@
 # Python package lbr-trex-client
 
 [Cisco TRex traffic generator](https://trex-tgn.cisco.com/) is distributed as a
-[single archive](https://trex-tgn.cisco.com/trex/doc/trex_manual.html#_obtaining_the_trex_package)
-containing all external libraries/packages inside. Usage of TRex Client API is then
-slightly complicated.
+single [.tar.gz archive](https://trex-tgn.cisco.com/trex/doc/trex_manual.html#_obtaining_the_trex_package)
+and contains all external libraries/packages for running TRex.
+This means trying to use or import TRex Client Python API in your code is relatively complicated, especially
+if your code runs on different machine than TRex itself.
 
 The purpose of this package is to provide client API in form of Python package
-which can be easily installed via `pip`. As mentioned, this API is part of
-TRex as a [tar.gz archive](https://trex-tgn.cisco.com/trex/doc/cp_docs/index.html#client-package).
-It has been extracted and packaged as Python module. Official source code can be also found on
-[TRex GitHub](https://github.com/cisco-system-traffic-generator/trex-core).
-Current API version of this package is [v3.02](https://trex-tgn.cisco.com/trex/doc/release_notes.html#_release_3_02).
-This package uses Python 3.8. Other Python versions are untested, but it is likely they will work as well.
-
-
-## Hosting and contribution
-
-Package `lbr-trex-client` is hosted publicly on Python Package Index (PyPI)
-and internally in GitLab's Package Registry.
-
-This project uses GitLab CI pipeline which is triggered
-with every new commit. Pipeline creates .whl package from contents
-inside [lbr_trex_client](./lbr_trex_client) folder.
-
-If pipeline triggers on `master` branch, then package is also uploaded into
-GitLab Package Registry. Version of package is defined by [git tags](https://pypi.org/project/setuptools-git-versioning/).
-It should follow version of TRex.
-Additionally, package is also uploaded on PyPI if it has a tag.
-
+which can be easily installed via `pip`. This API is part of
+TRex as another [tar.gz archive](https://trex-tgn.cisco.com/trex/doc/cp_docs/index.html#client-package).
+It was repackaged as standard Python module.
+Versions of this package follow TRex [version scheme](https://trex-tgn.cisco.com/trex/doc/release_notes.html).
+Although module was tested only on Python 3.8, it is likely that newer Python versions will work as well.
+Official source code can be also found on [TRex GitHub](https://github.com/cisco-system-traffic-generator/trex-core).
 
 ## Installation
 
@@ -36,7 +21,6 @@ You can use following command for installation:
 ```
 python3.8 -m pip install lbr-trex-client
 ```
-
 
 ## Usage
 
@@ -60,20 +44,20 @@ from scapy.layers.dns import *
 Alternatively you can use
 
 ```
-from lbr_trex_client.v3_02.interactive.trex.stl.api import *
-from lbr_trex_client.v3_02.interactive.trex.astf.api import *
+from lbr_trex_client.interactive.trex.stl.api import *
+from lbr_trex_client.interactive.trex.astf.api import *
 ...
 ```
 
-As you can see import above also contains Scapy. TRex is distributed as single archive
-and as such contains all external libraries/package inside. This is same with it's API.
-Explore [external_libs](./lbr_trex_client/v3_02/external_libs) to see all external packages.
+You can notice that imports above also contain [Scapy](https://scrapy.org/).
+As mentioned, TRex archive contains all dependencies, including modified Scapy.
+Explore [external_libs](./lbr_trex_client/external_libs) to see all external packages.
 
 **Note that** if your code already imported given package, then TRex **will replace** it with it's
-own version of package. The [replacement method](./lbr_trex_client/v3_02/interactive/trex/__init__.py)
+own version of package. The [replacement method](./lbr_trex_client/interactive/trex/__init__.py)
 however is not perfect and you can still be left with some local and some TRex version of modules.
 This is mostly evident with Scapy, especially with `from scapy.all import *` import.
-
+It can then lead to strange errors.
 
 ## Differences compared to official TRex API
 
@@ -82,7 +66,7 @@ Package `lbr-trex-client` has few changes compared to official client package:
  - `interactive/profiles` directory is removed (contains more examples and tests).
  - `interactive/trex/examples` directory is removed (more examples).
  - `interactive/trex/.vscode/tags` file is removed (unimportant).
- - `interactive/trex/wireless` unit tests and Sphinx docs removed.
+ - `interactive/trex/wireless` unit tests, examples and Sphinx docs removed.
  - `__pycache__` and `*.pyc` files removed.
  - `sys.path` and `os.environ` are [modified](./lbr_trex_client/__init__.py) on module import for hassle-free usage.
 
@@ -91,9 +75,9 @@ Package `lbr-trex-client` has few changes compared to official client package:
 On import you can get warning messages from Scapy:
 
 ```
-...lbr_trex_client/v3_02/external_libs/scapy-2.4.3/scapy/layers/ipsec.py:469: CryptographyDeprecationWarning: Blowfish has been deprecated
+...lbr_trex_client/external_libs/scapy-2.4.3/scapy/layers/ipsec.py:469: CryptographyDeprecationWarning: Blowfish has been deprecated
   cipher=algorithms.Blowfish,
-...lbr_trex_client/v3_02/external_libs/scapy-2.4.3/scapy/layers/ipsec.py:483: CryptographyDeprecationWarning: CAST5 has been deprecated
+...lbr_trex_client/external_libs/scapy-2.4.3/scapy/layers/ipsec.py:483: CryptographyDeprecationWarning: CAST5 has been deprecated
   cipher=algorithms.CAST5,
 ```
 
@@ -103,11 +87,9 @@ This is related to the fact that TRex uses older Scapy version.
 
 Here are links to API reference of main components:
 
-[Stateless - trex.stl.api](https://trex-tgn.cisco.com/trex/doc/cp_stl_docs/index.html#api-reference) - API for handling stateless TRex (connection, streams, Field Engine...).
-
-[Advanced Stateful - trex.astf.api](https://trex-tgn.cisco.com/trex/doc/cp_astf_docs/index.html#api-reference) - API for handling advanced stateful TRex (connection, traffic profiles...).
-
-[trex_client (CTRexClient)](https://trex-tgn.cisco.com/trex/doc/cp_docs/index.html#api-reference) - API for communication with TRex daemon (daemon is resposible for starting and terminating TRex instances(both stateless or adv. stateful instances)).
+ - [Stateless\[trex.stl.api\]](https://trex-tgn.cisco.com/trex/doc/cp_stl_docs/index.html#api-reference) - API for stateless mode.
+ - [Advanced Stateful\[trex.astf.api\]](https://trex-tgn.cisco.com/trex/doc/cp_astf_docs/index.html#api-reference) - API for advanced stateful mode.
+ - [trex_client\[CTRexClient\]](https://trex-tgn.cisco.com/trex/doc/cp_docs/index.html#api-reference) - API for communication with TRex daemon.
 
 General TRex documentation can be found [here](https://trex-tgn.cisco.com/trex/doc/index.html).
 
@@ -116,6 +98,18 @@ General TRex documentation can be found [here](https://trex-tgn.cisco.com/trex/d
 You can also use `lbr-testsuite` package for custom TRex API that is built on top of this package.
 For more information see [testsuite](https://pypi.org/project/lbr-testsuite/).
 
+## Hosting and contribution
+
+Package `lbr-trex-client` is hosted publicly on Python Package Index (PyPI)
+and internally in GitLab's Package Registry.
+
+This project uses GitLab CI pipeline which is triggered
+with every new commit. Pipeline creates .whl package from contents
+inside [lbr_trex_client](./lbr_trex_client) folder.
+
+If pipeline triggers on `master` branch, then package is also uploaded into
+GitLab Package Registry. Version of package is defined by [git tags](https://pypi.org/project/setuptools-git-versioning/).
+Additionally, package is also uploaded on PyPI if it has a tag.
 
 ## Repository Maintainer
 
@@ -125,4 +119,4 @@ For more information see [testsuite](https://pypi.org/project/lbr-testsuite/).
 
 Package is published under [Apache License Version 2.0](./LICENSE), which is [inherited](https://github.com/cisco-system-traffic-generator/trex-core/blob/master/LICENSE) from the TRex traffic generator
 source. The TRex client API contains also modified version of Scapy library, which is published under
-[GPLv2](./lbr_trex_client/v3_02/external_libs/scapy-2.4.3/LICENSE) license.
+[GPLv2](./lbr_trex_client/external_libs/scapy-2.4.3/LICENSE) license.
