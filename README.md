@@ -10,7 +10,8 @@ The purpose of this package is to provide client API in form of Python package
 which can be easily installed via `pip`. This API is part of
 TRex as another [tar.gz archive](https://trex-tgn.cisco.com/trex/doc/cp_docs/index.html#client-package).
 It was repackaged as standard Python module.
-Versions of this package follow TRex [version scheme](https://trex-tgn.cisco.com/trex/doc/release_notes.html).
+Versions of this package follow TRex [version scheme](https://trex-tgn.cisco.com/trex/doc/release_notes.html)
+(also see [special versions](#special-versions)).
 Although module was tested only on Python 3.8, it is likely that newer Python versions will work as well.
 Official source code can be also found on [TRex GitHub](https://github.com/cisco-system-traffic-generator/trex-core).
 
@@ -69,6 +70,12 @@ Package `lbr-trex-client` has few changes compared to official client package:
  - `interactive/trex/wireless` unit tests, examples and Sphinx docs removed.
  - `__pycache__` and `*.pyc` files removed.
  - `sys.path` and `os.environ` are [modified](./lbr_trex_client/__init__.py) on module import for hassle-free usage.
+
+#### Special versions
+
+Some versions might have `.dev311` suffix. These versions are used in our Python3.11 environment.
+There are some breaking changes when moving from Python3.8 to Python3.11. Since we want to keep
+official version, we release our Python3.11 version with this special suffix.
 
 #### Known issues
 
