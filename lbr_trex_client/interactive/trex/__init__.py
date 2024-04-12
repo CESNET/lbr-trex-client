@@ -29,7 +29,8 @@ def __load ():
     # py-dep requires python2/python3 directories
     # arch-dep requires intel/arm, 32bit/64bit directories
     ext_libs = [ {'name': 'texttable',    'dir': 'texttable-0.8.4'},
-                 {'name': 'yaml',         'dir': 'pyyaml-3.11', 'py-dep': True},
+                 #{'name': 'yaml',         'dir': 'pyyaml-3.11', 'py-dep': True},
+                 {'name': 'yaml',         'dir': 'pyyaml-6.0.1'},
                  {'name': 'scapy',        'dir': 'scapy-2.4.3'},
                  {'name': 'zmq',          'dir': 'pyzmq-ctypes'},
                  {'name': 'simpy',        'dir': 'simpy-3.0.10'},
